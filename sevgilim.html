@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tuğbayı çok seviyorum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--accent:#ff6b6b;--bg:#0f1724;--card:#0b1220;--glass:rgba(255,255,255,0.06)}
+    *{box-sizing:border-box;font-family:Montserrat,system-ui,Arial}
+    body{margin:0;background:linear-gradient(180deg,#071025 0%, #0f1724 100%);color:#e6eef8;min-height:100vh}
+    .wrap{max-width:980px;margin:28px auto;padding:20px}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:76px;height:76px;border-radius:18px;background:var(--glass);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:var(--accent)}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 0;color:#bcd3ee}
+    .hero{margin-top:20px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:14px;backdrop-filter:blur(6px)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media(max-width:880px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);padding:14px;border-radius:12px}
+    .gallery{display:flex;flex-wrap:wrap;gap:8px}
+    .gallery img{width:calc(33.333% - 6px);border-radius:8px;object-fit:cover;height:90px}
+    @media(max-width:600px){.gallery img{width:calc(50% - 6px);height:80px}}
+    .love-notes{max-height:180px;overflow:auto;padding-right:8px}
+    .note{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;border-radius:8px;margin-bottom:8px}
+    .actions{display:flex;gap:8px;margin-top:10px}
+    .btn{padding:8px 12px;border-radius:10px;border:0;cursor:pointer;background:var(--accent);color:#081226;font-weight:700}
+    .muted{background:transparent;border:1px solid rgba(255,255,255,0.04);color:#c9d7ee}
+    footer{margin-top:18px;text-align:center;color:#8fa7c9;font-size:13px}
+    .playlist{display:flex;gap:8px;align-items:center}
+    input[type="file"]{display:none}
+    .badge{display:inline-block;padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:999px;font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">❤</div>
+      <div>
+        <h1>Seni çok seviyorum aşkım</h1>
+        <p class="lead">Hayatımı adadığım güzelim Tuğbamm💖</p>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="grid">
+        <main>
+          <div class="card">
+            <h2>Hakkında</h2>
+            <p>Tuğbamm💖, 19/092025 <a href="https://open.spotify.com/playlist/0VSm7t31bHJAGtpbUduA4i?si=f04fe8b7f69a4cca"> Spotify linkimiz </a> </p>
+            <div class="actions">
+              <button class="btn" id="add-note">Yeni Not Ekle</button>
+              <label class="btn muted" for="imgUpload">Fotoğraf Ekle</label>
+              <input id="imgUpload" type="file" accept="image/*" multiple>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:12px">
+            <h3>Fotoğraf Galerisi</h3>
+            <div class="gallery" id="gallery"></div>
+          </div>
+
+          <div class="card" style="margin-top:12px">
+            <h3>Notlar</h3>
+            <div class="love-notes" id="notes">
+              <div class="note">İlk buluşmamız: <strong>17/10/2025</strong>asla unutamam</div>
+              <div class="note">Seni seviyorum</div>
+            </div>
+          </div>
+        </main>
+
+        <aside>
+          <div class="card">
+            <h3>Playlist</h3>
+            <div class="card">
+  <h3>Bizim Şarkımız 🎶</h3>
+  <iframe style="border-radius:12px" 
+    src="https://open.spotify.com/embed/track/4Q8RkSigphYoi9lFm5nFBW?utm_source=generator" 
+    width="100%" 
+    height="152" 
+    frameborder="0" 
+    allowfullscreen="" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy">
+  </iframe>
+  <p style="margin-top:8px;font-size:13px;color:#9fb4d9">
+    Seninle bizim şarkımız 💗<br>
+    <a href="https://open.spotify.com/intl-tr/track/4Q8RkSigphYoi9lFm5nFBW?si=fc4f0fd411784675" target="_blank" style="color:#ff6b6b;text-decoration:none;">Spotify’da aç</a>
+  </p>
+</div>
+
+
+          <div class="card" style="margin-top:12px">
+            <h3>İletişim</h3>
+            <p class="muted" style="padding:10px">İnsta:batu_kara17</p>
+            <input id="msg" placeholder="Tatlı bir not yaz" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-top:6px">
+            <div style="margin-top:8px;display:flex;gap:8px">
+              <button class="btn" id="sendMsg">Gönder</button>
+              <button class="btn muted" id="clearMsgs">Hepsini Sil</button>
+            </div>
+            <div id="sentList" style="margin-top:10px;font-size:14px;color:#cce0ff"></div>
+          </div>
+
+          <div class="card" style="margin-top:12px;text-align:center">
+            <span class="badge">Hızlı not: ASKIMIZZ SONSUZA KADAR SÜRECEKKK</span>
+            <p style="font-size:13px;color:#9fb4d9;margin-top:8px"></p>
+          </div>
+        </aside>
+      </div>
+
+      <footer>
+        <div>ASKIMA ÖZELLL❤️</div>
+      </footer>
+    </section>
+  </div>
+
+  <script>
+    const notesEl = document.getElementById('notes');
+    document.getElementById('add-note').addEventListener('click', ()=>{
+      const text = prompt('Kısa notunu yaz abi:');
+      if(text) {
+        const d = document.createElement('div'); d.className='note'; d.textContent=text; notesEl.prepend(d);
+      }
+    });
+
+    const gallery = document.getElementById('gallery');
+
+// --- LocalStorage'dan fotoğraf yükle
+window.addEventListener('load', ()=>{
+  const saved = JSON.parse(localStorage.getItem('photos') || '[]');
+  saved.forEach(src=>{
+    const img = document.createElement('img');
+    img.src = src;
+    img.title = "Kaldırmak için tıkla";
+    img.style.cursor = "pointer";
+    img.addEventListener('click', ()=>{
+      if(confirm("Bu fotoğrafı kaldırayım mı abi?")) {
+        img.remove();
+        savePhotos();
+      }
+    });
+    gallery.prepend(img);
+  });
+});
+
+// --- Yeni fotoğraf ekleme
+const imgUpload = document.getElementById('imgUpload');
+imgUpload.addEventListener('change', (e)=>{
+  const files = Array.from(e.target.files);
+  files.forEach(f=>{
+    const reader = new FileReader();
+    reader.onload = ev=>{
+      const src = ev.target.result;
+      const img = document.createElement('img');
+      img.src = src;
+      img.title = "Kaldırmak için tıkla";
+      img.style.cursor = "pointer";
+      img.addEventListener('click', ()=>{
+        if(confirm("Bu fotoğrafı kaldırayım mı abi?")) {
+          img.remove();
+          savePhotos();
+        }
+      });
+      gallery.prepend(img);
+      savePhotos();
+    };
+    reader.readAsDataURL(f);
+  });
+});
+
+// --- Fotoğrafları kaydet
+function savePhotos(){
+  const all = Array.from(gallery.querySelectorAll('img')).map(img=>img.src);
+  localStorage.setItem('photos', JSON.stringify(all));
+}
+
+
+
+    const sendBtn = document.getElementById('sendMsg');
+    const sentList = document.getElementById('sentList');
+    sendBtn.addEventListener('click', ()=>{
+      const t = document.getElementById('msg');
+      if(!t.value) return alert('Bi şey yaz be abi');
+      const div = document.createElement('div'); div.textContent = '• '+t.value; sentList.prepend(div); t.value='';
+    });
+    document.getElementById('clearMsgs').addEventListener('click', ()=> sentList.innerHTML='');
+  </script>
+</body>
+</html>
